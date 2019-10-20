@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>wikipedia searcher</title>
+  <style>
+    body {
+      background-color: #f58b54;
+
+    }
+
+    #button {
+      width: 30%;
+      height: 200px;
+      background-color: lightgreen;
+    }
+
+    #place {
+      width: 50%;
+      height: 300px;
+      position: absolute;
+      top: 400px;
+      left: 400px;
+      background-color: #dfddc7;
+    }
+
+    #place {
+      font-size: 36px;
+      font-family: sans-serif;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #text-box {
+      width: 30%;
+      height: 50px;
+      border-radius: 3%;
+      border: 0px;
+      position: absolute;
+      left: 32.5%;
+      top: 30%;
+      right: auto;
+      font-size: 45px;
+    }
+
+    #button1 {
+      width: 100px;
+      height: 50px;
+      position: absolute;
+      background-color: #f2eee5;
+      left: 65%;
+      top: 30%;
+      margin: 0;
+
+    }
+
+    #button1:hover {
+      animation: turncolor 2s 1;
+    }
+
+    @keyframes turncolor {
+      from {
+        background-color: #f2eee5;
+      }
+
+      to {
+        background-color: #ff4d00;
+        color: white;
+        font-style: bold;
+
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <input type="text" id="text-box" value="Search">
+    <button id="button1" onclick="getData()">Click here
+  </div>
+  <div id="place"></div>
+
+  <script>
+    var put = document.getElementById('place');
+
+    async function getData() {
+      const search1 = document.getElementById('text-box').value;
+      const response = await fetch(`https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&limit=5&search=${search1}`);
+
+      const blob = await response.json();
+      put.innerHTML = blob[2][0];
+      put.style.color = "black";
+    }
+  </script>
+</body>
+
+</html>
