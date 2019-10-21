@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>wikipedia searcher</title>
+  <link rel="stylesheet" type="text/css" href="style_font.css">
+  <script src="front.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <input type="text" id="text-box" value="Search">
+    <button id="button1" onclick="option()">Click here
+  </div>
+  <div id="place">
+    <div id="option_box">
+      <div id="box_1" class="option_box_inside" onclick="getData(0)"></div>
+      <div id="box_2" class="option_box_inside" onclick="getData(1)"></div>
+      <div id="box_3" class="option_box_inside" onclick="getData(2)"></div>
+    </div>
+  </div>
+
+  <script>
+    async function search_after() {
+      document.getElementById("box_1");
+      document.getElementById("box_2");
+      document.getElementById("box_3");
+    }
+  </script>
+</body>
+
+</html>
